@@ -12,6 +12,7 @@ URL:		http://www.openal.org
 Source:		http://www.openal.org/openal_webstf/downloads/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-openal.patch
 BuildRequires:	openal-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 ALUT is the OpenAL Utility Toolkit.
