@@ -81,7 +81,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_includedir}/AL
 %{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/*.so
 %{_bindir}/%{name}-config
