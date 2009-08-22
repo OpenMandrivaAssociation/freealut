@@ -5,7 +5,7 @@
 Name:		freealut
 Summary:	OpenAL Utility Toolkit (ALUT)
 Version:	1.1.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	LGPLv2
 Group:		Sound
 URL:		http://www.openal.org
@@ -46,13 +46,14 @@ applications which will use ALUT.
 
 %build
 ./autogen.sh
-
 %configure2_5x
 %make
 
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+
+rm -f %{buildroot}%{_libdir}/*.la
 
 %clean
 rm -rf %{buildroot}
