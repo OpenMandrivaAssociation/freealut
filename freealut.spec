@@ -5,7 +5,7 @@
 Name:		freealut
 Summary:	OpenAL Utility Toolkit (ALUT)
 Version:	1.1.0
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	LGPLv2
 Group:		Sound
 URL:		http://www.openal.org
@@ -84,3 +84,55 @@ rm -rf %{buildroot}
 %{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/*.so
 %{_bindir}/%{name}-config
+
+
+%changelog
+* Tue May 03 2011 Oden Eriksson <oeriksson@mandriva.com> 1.1.0-9mdv2011.0
++ Revision: 664353
+- mass rebuild
+
+* Thu Dec 02 2010 Oden Eriksson <oeriksson@mandriva.com> 1.1.0-8mdv2011.0
++ Revision: 605216
+- rebuild
+
+* Wed Mar 17 2010 Oden Eriksson <oeriksson@mandriva.com> 1.1.0-7mdv2010.1
++ Revision: 522670
+- rebuilt for 2010.1
+
+* Sat Aug 22 2009 Funda Wang <fwang@mandriva.org> 1.1.0-6mdv2010.0
++ Revision: 419591
+- update file list
+- drop la files (openal does not ship la files now)
+
+* Sat Aug 02 2008 Herton Ronaldo Krzesinski <herton@mandriva.com.br> 1.1.0-5mdv2009.0
++ Revision: 260499
+- Redid freealut-oopenal.patch to fix underlinking in libalut.
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - rebuild
+    - kill re-definition of %%buildroot on Pixel's request
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue Oct 23 2007 Tomasz Pawel Gajc <tpg@mandriva.org> 1.1.0-4mdv2008.1
++ Revision: 101395
+- rebuild for new era
+- new devel library policy
+- new license policy
+- add patch 0 (stolen from Fedora ;)
+- spec file clean
+
+
+* Tue Dec 05 2006 Olivier Blin <oblin@mandriva.com> 1.1.0-3mdv2007.0
++ Revision: 90690
+- make devel package conflicts with old openal-devel
+
+* Tue Dec 05 2006 Olivier Blin <oblin@mandriva.com> 1.1.0-2mdv2007.1
++ Revision: 90658
+- initial freealut release
+- Create freealut
+
