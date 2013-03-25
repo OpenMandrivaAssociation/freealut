@@ -5,14 +5,13 @@
 Name:		freealut
 Summary:	OpenAL Utility Toolkit (ALUT)
 Version:	1.1.0
-Release:	%mkrel 10
+Release:	11
 License:	LGPLv2
 Group:		Sound
 URL:		http://www.openal.org
-Source:		http://www.openal.org/openal_webstf/downloads/%{name}-%{version}.tar.bz2
+Source0:	http://www.openal.org/openal_webstf/downloads/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-openal.patch
 BuildRequires:	openal-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 ALUT is the OpenAL Utility Toolkit.
@@ -32,8 +31,8 @@ Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%mklibname %{name} 0 -d
-Provides:	%mklibname %{name} 0 -d
+Obsoletes:	%{mklibname %{name} 0 -d}  < 1.1.0-11
+Provides:	%{mklibname %{name} 0 -d} = %{version}-%{release}
 Conflicts:	openal-devel < 0.0.8-2
 
 %description -n	%{develname}
@@ -50,35 +49,15 @@ applications which will use ALUT.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 rm -f %{buildroot}%{_libdir}/*.la
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%post -n %{develname}
-%_install_info %{name}.info
-
-%preun -n %{develname}
-%_remove_install_info %{name}.info
-
 %files -n %{libname}
-%defattr(-,root,root)
-%doc AUTHORS ChangeLog NEWS README
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
+%doc AUTHORS ChangeLog NEWS README
 %{_includedir}/AL
 %{_libdir}/*.a
 %{_libdir}/pkgconfig/%{name}.pc
