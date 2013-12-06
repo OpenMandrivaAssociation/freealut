@@ -6,7 +6,7 @@
 Summary:	OpenAL Utility Toolkit (ALUT)
 Name:		freealut
 Version:	1.1.0
-Release:	18
+Release:	19
 License:	LGPLv2
 Group:		Sound
 Url:		http://www.openal.org
