@@ -40,7 +40,7 @@ applications which will use ALUT.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 ./autogen.sh
