@@ -1,12 +1,12 @@
-%define sname	alut
-%define major	0
+%define sname alut
+%define major 0
 %define libname %mklibname %{sname} %{major}
 %define devname %mklibname %{sname} -d
 
 Summary:	OpenAL Utility Toolkit (ALUT)
 Name:		freealut
 Version:	1.1.0
-Release:	26
+Release:	27
 License:	LGPLv2
 Group:		Sound
 Url:		http://www.openal.org
@@ -34,22 +34,22 @@ Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Obsoletes:	%{_lib}freealut-devel < 1.1.0-1
 
-%description -n	%{devname}
+%description -n %{devname}
 This package contains the headers that programmers will need to develop
 applications which will use ALUT.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 ./autogen.sh
-%configure2_5x \
+%configure \
 	--disable-static
-%make
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 rm -f %{buildroot}%{_libdir}/*.la
 
@@ -62,4 +62,3 @@ rm -f %{buildroot}%{_libdir}/*.la
 %{_libdir}/pkgconfig/%{name}.pc
 %{_libdir}/*.so
 %{_bindir}/%{name}-config
-
