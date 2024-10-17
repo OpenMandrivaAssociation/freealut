@@ -9,7 +9,7 @@ Version:	1.1.0
 Release:	28
 License:	LGPLv2
 Group:		Sound
-Url:		http://www.openal.org
+Url:		https://www.openal.org
 Source0:	http://connect.creativelabs.com/openal/Downloads/ALUT/%{name}-%{version}.tar.gz
 Patch0:		%{name}-openal.patch
 BuildRequires:	pkgconfig(openal)
