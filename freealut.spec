@@ -12,6 +12,11 @@ Group:		Sound
 Url:		https://www.openal.org
 Source0:	http://connect.creativelabs.com/openal/Downloads/ALUT/%{name}-%{version}.tar.gz
 Patch0:		%{name}-openal.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(openal)
 
 %description
